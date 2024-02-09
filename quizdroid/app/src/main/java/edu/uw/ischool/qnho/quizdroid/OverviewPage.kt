@@ -57,7 +57,7 @@ class OverviewPage : Fragment() {
 
 //        can only reference activity in onViewCreated
         test.setOnClickListener{
-            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.app, questionPage)?.commit()
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.app, questionPage)?.addToBackStack(null)?.commit()
         }
     }
 
