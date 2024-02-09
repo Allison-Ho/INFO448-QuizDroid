@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#24293E"
+    tools:context=".HomePage">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/quizdroid"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:textSize="35dp"
+        android:textColor="#F4F5FC"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/math_quiz"
+            android:layout_width="294dp"
+            android:layout_height="86dp"
+            android:background="@drawable/rounded_bg"
+            android:layout_marginTop="23dp"
+            android:layout_marginBottom="23dp"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/math"
+                    android:textStyle="bold"
+                    android:textSize="25dp"
+                    android:textColor="#F4F5FC"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/score"
+                    android:textSize="14dp"
+                    android:textColor="#F4F5FC"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/physics_quiz"
+            android:layout_width="294dp"
+            android:layout_height="86dp"
+            android:background="@drawable/rounded_bg"
+            android:layout_marginTop="23dp"
+            android:layout_marginBottom="23dp"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/physics"
+                    android:textStyle="bold"
+                    android:textSize="25dp"
+                    android:textColor="#F4F5FC"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/score"
+                    android:textSize="14dp"
+                    android:textColor="#F4F5FC"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/marvel_quiz"
+            android:layout_width="294dp"
+            android:layout_height="86dp"
+            android:background="@drawable/rounded_bg"
+            android:layout_marginTop="23dp"
+            android:layout_marginBottom="23dp"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/marvel"
+                    android:textStyle="bold"
+                    android:textSize="25dp"
+                    android:textColor="#F4F5FC"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/score"
+                    android:textSize="14dp"
+                    android:textColor="#F4F5FC"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    
+
+</FrameLayout>

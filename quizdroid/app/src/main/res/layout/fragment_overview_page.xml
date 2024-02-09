@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#24293E"
+    tools:context=".OverviewPage">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/overview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="30dp"
+        android:textColor="#F4F5FC"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/score"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:textColor="#F4F5FC"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="30dp"
+            android:text="@string/question_num"
+            android:textSize="14dp"
+            android:textColor="#F4F5FC"/>
+
+        <LinearLayout
+            android:layout_width="410dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_bg" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="30dp"
+                android:text="Overview"
+                android:textSize="33dp"
+                android:textColor="#F4F5FC" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:text="@string/filler_text"
+                android:textSize="20dp"
+                android:textColor="#F4F5FC" />
+        </LinearLayout>
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/beginBtn"
+        android:layout_width="282dp"
+        android:layout_height="59dp"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#8EBBFF"
+        android:text="Begin"
+        android:textSize="23dp"
+        android:textColor="#24293E"
+        />
+
+</FrameLayout>

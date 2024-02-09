@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">quizdroid</string>
+    <string name="quizdroid">QuizDroid</string>
+    <string name="math">Math</string>
+    <string name="physics">Physics</string>
+    <string name="marvel">Marvel Super Heroes</string>
+    <string name="score">Highest score: 100</string>
+    <string name="question_num">Number of Questions: 10</string>
+    <string name="filler_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id leo in vitae turpis. Vivamus arcu felis bibendum ut tristique et egestas quis ipsum.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
