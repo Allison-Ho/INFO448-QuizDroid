@@ -1,12 +1,17 @@
 package edu.uw.ischool.qnho.quizdroid
 
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.view.marginTop
+import androidx.fragment.app.Fragment
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,27 +53,53 @@ class HomePage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)
         super.onCreate(savedInstanceState)
-        val math = view.findViewById<LinearLayout>(R.id.math_quiz)
-        val physics = view.findViewById<LinearLayout>(R.id.physics_quiz)
-        val marvel = view.findViewById<LinearLayout>(R.id.marvel_quiz)
 
-//        can only reference activity in onViewCreated
-        math.setOnClickListener{
-            switchView("math")
+        val quizApp = requireActivity().application as QuizApp
+        val repo = quizApp.quizzes
+        val allTopic = repo.getTopic()
+
+        Log.i("MAYBE", allTopic.toString())
+
+        val topics = arrayOf(R.id.topic_0, R.id.topic_1, R.id.topic_2)
+        for (quiz in allTopic.indices) {
+            val topic = view.findViewById<LinearLayout>(topics[quiz])
+            val title = TextView(activity?.applicationContext)
+            title.text = allTopic[quiz].first
+            title.setTextColor(Color.parseColor("#F4F5FC"))
+            title.textSize = 25.0F
+            title.typeface = Typeface.DEFAULT_BOLD
+
+            title.layoutParams =
+                LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+            title.setPadding(40, 35, 0, 0)
+
+            topic.addView(title)
+
+            val desc = TextView(activity?.applicationContext)
+            desc.text = allTopic[quiz].second
+            desc.setTextColor(Color.parseColor("#F4F5FC"))
+            desc.textSize = 14.0F
+
+            desc.layoutParams =
+                LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+            desc.setPadding(40, 2, 0, 0)
+
+            topic.addView(desc)
+
+            val topicInfo = repo.getTopicInfo(allTopic[quiz].first)
+
+            topic.setOnClickListener{
+                switchView(allTopic[quiz].first, topicInfo.first, topicInfo.second)
+            }
         }
 
-        physics.setOnClickListener{
-            switchView("physics")
-        }
-
-        marvel.setOnClickListener{
-            switchView("marvel")
-        }
     }
 
-    private fun switchView(quizId: String){
+    private fun switchView(quizId: String, longDesc : String, totalQuest : Int){
         val bundle = Bundle()
         bundle.putString("quizId", quizId)
+        bundle.putString("longDesc", longDesc)
+        bundle.putInt("totalQuest", totalQuest)
         overview.arguments = bundle
         activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.app, overview)?.commit()
     }

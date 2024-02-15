@@ -1,5 +1,6 @@
 package edu.uw.ischool.qnho.quizdroid
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -46,17 +47,36 @@ class OverviewPage : Fragment() {
 //        super.onViewCreated(view, savedInstanceState)
         super.onCreate(savedInstanceState)
         val quizName = arguments?.getString("quizId")
+        val longDesc = arguments?.getString("longDesc")
+        val numQuestion = arguments?.getInt("totalQuest")
+
+
         val overview = view.findViewById<TextView>(R.id.overview)
-        overview.text = name[quizName]
+        overview.text = quizName
         overview.textSize = 35.0F
-        val test = view.findViewById<Button>(R.id.beginBtn)
+
+        val displayQuestion = view.findViewById<TextView>(R.id.num_question)
+        displayQuestion.text = "Number of Questions: ${numQuestion.toString()}"
+        displayQuestion.textSize = 14.0F
+        displayQuestion.setTextColor(Color.parseColor("#F4F5FC"))
+
+        val description = view.findViewById<TextView>(R.id.long_desc)
+        description.text = longDesc
+        description.textSize = 20.0F
+        description.setTextColor(Color.parseColor("#F4F5FC"))
+
+        val beginBtn = view.findViewById<Button>(R.id.beginBtn)
 
         val bundle = Bundle()
         bundle.putString("quizId", quizName)
+
+        if (numQuestion != null) {
+            bundle.putInt("totalQuest", numQuestion)
+        }
         questionPage.arguments = bundle
 
 //        can only reference activity in onViewCreated
-        test.setOnClickListener{
+        beginBtn.setOnClickListener{
             activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.app, questionPage)?.addToBackStack(null)?.commit()
         }
     }
