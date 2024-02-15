@@ -89,17 +89,18 @@ class HomePage : Fragment() {
             val topicInfo = repo.getTopicInfo(allTopic[quiz].first)
 
             topic.setOnClickListener{
-                switchView(allTopic[quiz].first, topicInfo.first, topicInfo.second)
+                switchView(allTopic[quiz].first, topicInfo[0].toString(), topicInfo[1].toString().toInt(), topicInfo[2].toString().toInt())
             }
         }
 
     }
 
-    private fun switchView(quizId: String, longDesc : String, totalQuest : Int){
+    private fun switchView(quizId: String, longDesc : String, totalQuest : Int, icon: Int){
         val bundle = Bundle()
         bundle.putString("quizId", quizId)
         bundle.putString("longDesc", longDesc)
         bundle.putInt("totalQuest", totalQuest)
+        bundle.putInt("icon", icon)
         overview.arguments = bundle
         activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.app, overview)?.commit()
     }

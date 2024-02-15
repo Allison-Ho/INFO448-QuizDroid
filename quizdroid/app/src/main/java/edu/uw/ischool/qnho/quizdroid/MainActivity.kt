@@ -1,5 +1,6 @@
 package edu.uw.ischool.qnho.quizdroid
 
+import android.graphics.drawable.Icon
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -24,7 +25,7 @@ interface TopicRepository {
     fun getQuiz() : List<Topic>
     fun quizByTopic(topic: String) : List<Question>?
     fun getTopic() : List<Pair<String, String>>
-    fun getTopicInfo(topic: String) : Pair<String, Int>
+    fun getTopicInfo(topic: String) : Array<Any>
 
     class ActualTopicRepository : TopicRepository {
         val  math = listOf<Question>(Question("1 + 1", listOf("2", "4", "6", "8"), 0),
@@ -40,9 +41,9 @@ interface TopicRepository {
             Question("What is the name of the infinity stone that Thanos took from Loki?", listOf("Time stone", "Soul stone", "Mind stone", "Space stone"), 2))
 
         val quizzes : MutableList<Topic> = mutableListOf(
-            Topic("Math", "Do some math", "Quiz about math", math),
-            Topic("Physics", "i love physics", "Fun facts about physics", physics),
-            Topic("Marvel", "i love marvel", "Fun facts about the MCU and marvel universe", marvel)
+            Topic("Math", "Do some math", "Quiz about math", math, R.mipmap.ic_launcher_round),
+            Topic("Physics", "i love physics", "Fun facts about physics", physics, R.mipmap.ic_launcher_round),
+            Topic("Marvel", "i love marvel", "Fun facts about the MCU and marvel universe", marvel, R.mipmap.ic_launcher_round)
         )
 
         override fun getQuiz(): List<Topic> {
@@ -57,12 +58,12 @@ interface TopicRepository {
             return quizzes.map { Pair(it.title, it.shortDesc) }
         }
 
-        override fun getTopicInfo(topic: String): Pair<String, Int> {
+        override fun getTopicInfo(topic: String): Array<Any> {
             val foundTopic = quizzes.find { it.title == topic }
             return if (foundTopic != null) {
-                Pair(foundTopic.longDesc, foundTopic.questions.size)
+                arrayOf(foundTopic.longDesc, foundTopic.questions.size, foundTopic.icon)
             } else {
-                Pair("", -1)
+                arrayOf("", -1, -1)
             }
         }
     }
@@ -70,7 +71,7 @@ interface TopicRepository {
 
 // ============================================================
 // Domain objects
-data class Topic (val title: String, val shortDesc: String, val longDesc: String, val questions: List<Question>) {}
+data class Topic (val title: String, val shortDesc: String, val longDesc: String, val questions: List<Question>, val icon: Int) {}
 
 data class Question (val text: String, val ans: List<String>, val correct: Int) {}
 

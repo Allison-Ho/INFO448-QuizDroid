@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 
@@ -24,7 +25,6 @@ class OverviewPage : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private val name: Map<String, String> = mapOf("math" to "Math", "physics" to "Physics", "marvel" to "Marvel Super Heroes")
     private val questionPage = QuestionPage()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +49,10 @@ class OverviewPage : Fragment() {
         val quizName = arguments?.getString("quizId")
         val longDesc = arguments?.getString("longDesc")
         val numQuestion = arguments?.getInt("totalQuest")
+        val icon = arguments?.getInt("icon")
 
+        val img = view.findViewById<ImageView>(R.id.icon)
+        img.setImageResource(R.mipmap.ic_launcher_round)
 
         val overview = view.findViewById<TextView>(R.id.overview)
         overview.text = quizName

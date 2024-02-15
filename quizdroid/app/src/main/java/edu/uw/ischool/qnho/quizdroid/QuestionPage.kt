@@ -62,7 +62,7 @@ class QuestionPage : Fragment() {
         val quiz = repo.quizByTopic(quizName!!)
 
         if (quiz != null) {
-            displayQuestion(view, quiz[questNum - 1].text, quiz[questNum - 1].ans, quiz[questNum - 1].correct)
+            displayQuestion(view, quiz[questNum - 1].text, quiz[questNum - 1].ans)
 
             var chosen : RadioButton = view.findViewById(R.id.option_1)
             val radioGroup = view.findViewById<RadioGroup>(R.id.choices)
@@ -84,7 +84,7 @@ class QuestionPage : Fragment() {
                     nextBtn.setOnClickListener{
                         submitBtn.visibility = View.VISIBLE
                         nextBtn.visibility = View.GONE
-                        displayQuestion(view, quiz[questNum - 1].text, quiz[questNum - 1].ans, quiz[questNum - 1].correct)
+                        displayQuestion(view, quiz[questNum - 1].text, quiz[questNum - 1].ans)
                     }
                 }else{
                     nextBtn.text = "Finish"
@@ -113,7 +113,7 @@ class QuestionPage : Fragment() {
 
     }
 
-    private fun displayQuestion(layout: View, text: String, answers: List<String>, correct: Int) {
+    private fun displayQuestion(layout: View, text: String, answers: List<String>) {
         val questionNum = layout.findViewById<TextView>(R.id.num_question)
         val question = layout.findViewById<TextView>(R.id.question)
 
@@ -123,8 +123,9 @@ class QuestionPage : Fragment() {
 
         question.text = text
 
-        val radioGroup = layout.findViewById<RadioGroup>(R.id.choices)
-        radioGroup.clearCheck()
+        val trying = layout.findViewById<RadioGroup>(R.id.choices)
+        Log.i("BRO", trying.toString())
+        trying.clearCheck()
 
         val choices = arrayOf(R.id.option_1, R.id.option_2, R.id.option_3, R.id.option_4)
 
