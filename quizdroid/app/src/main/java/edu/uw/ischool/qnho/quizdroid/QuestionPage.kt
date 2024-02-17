@@ -78,7 +78,7 @@ class QuestionPage : Fragment() {
             val nextBtn = view.findViewById<Button>(R.id.next_btn)
 
             submitBtn.setOnClickListener {
-                submitAns(chosen, quiz)
+                submitAns(view, chosen, quiz)
 
                 submitBtn.visibility = View.GONE
                 nextBtn.visibility = View.VISIBLE
@@ -100,8 +100,9 @@ class QuestionPage : Fragment() {
         }
     }
 
-    private fun submitAns(chosenBtn: RadioButton, questions: List<Question>) {
+    private fun submitAns(view: View, chosenBtn: RadioButton, questions: List<Question>) {
         val currQuestion = questions[questNum - 1]
+        val options = arrayOf(R.id.option_1, R.id.option_2, R.id.option_3, R.id.option_4)
 
         if(chosenBtn.text == currQuestion.ans[currQuestion.correct]) {
             numCorrect++
@@ -111,6 +112,8 @@ class QuestionPage : Fragment() {
         } else {
             chosenBtn.setTextColor(Color.parseColor("#24293E"))
             chosenBtn.setBackgroundColor(Color.parseColor("#FE805D"))
+            view.findViewById<Button>(options[currQuestion.correct]).setBackgroundColor(Color.parseColor("#77DD77"))
+            view.findViewById<Button>(options[currQuestion.correct]).setTextColor(Color.parseColor("#24293E"))
         }
 
         Toast.makeText(activity, "You have $numCorrect out of 3 correct", Toast.LENGTH_SHORT).show()
