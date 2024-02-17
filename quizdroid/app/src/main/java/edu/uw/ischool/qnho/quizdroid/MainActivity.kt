@@ -36,9 +36,9 @@ interface TopicRepository {
             Question("What is the earth's primary source of energy", listOf("Fire", "Water", "Wind", "The sun"), 3),
             Question("Who became famous after being hit in the head by an apple?", listOf("Einstein", "Galileo", "Newton", "Copernicus"), 2))
 
-        val  marvel = listOf<Question>(Question("Where do Thor and Loki live?", listOf("Midgard", "Asgard", "Nidavellir", "Jotunheim"), 0),
+        val  marvel = listOf<Question>(Question("Where do Thor and Loki live?", listOf("Midgard", "Asgard", "Nidavellir", "Jotunheim"), 1),
             Question("Who is the first super hero of the MCU?", listOf("Captain America", "Thor", "Iron Man", "Doctor Strange"), 2),
-            Question("What is the name of the infinity stone that Thanos took from Loki?", listOf("Time stone", "Soul stone", "Mind stone", "Space stone"), 2))
+            Question("What is the name of the infinity stone that Thanos took from Loki?", listOf("Time stone", "Soul stone", "Mind stone", "Space stone"), 3))
 
         val quizzes : MutableList<Topic> = mutableListOf(
             Topic("Math", "Do some math", "Quiz about math", math, R.mipmap.ic_launcher_round),

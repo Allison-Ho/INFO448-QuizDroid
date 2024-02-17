@@ -67,7 +67,11 @@ class QuestionPage : Fragment() {
             var chosen : RadioButton = view.findViewById(R.id.option_1)
             val radioGroup = view.findViewById<RadioGroup>(R.id.choices)
             radioGroup.setOnCheckedChangeListener { group, id ->
-                chosen = view.findViewById(id)
+                Log.i("MEOW", id.toString())
+                if (id > 0) {
+                    chosen = view.findViewById(id)
+                }
+
             }
 
             val submitBtn = view.findViewById<Button>(R.id.submit_btn)
