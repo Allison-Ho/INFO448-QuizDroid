@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditTextPreference
+        app:key="url"
+        app:title="Quiz URL"/>
+
+    <EditTextPreference
+        app:key="check_download"
+        app:title="Check for new download"/>
+</PreferenceScreen>

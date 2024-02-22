@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Math",
+    "desc": "Do some math",
+    "questions": [
+      {
+        "text": "1 + 1",
+        "answer": "0",
+        "answers": ["2", "4", "6", "8"]
+      },
+      {
+        "text": "4 + 6",
+        "answer": "2",
+        "answers": ["20", "14", "10", "18"]
+      },
+      {
+        "text": "3 * 5",
+        "answer": "1",
+        "answers": ["5", "15", "25", "35"]
+      }
+    ]
+  },
+  {
+    "title": "Physics",
+    "desc": "Fun facts about physics",
+    "questions": [
+      {
+        "text": "Electric power is typically measured in what units",
+        "answer": "1",
+        "answers": ["Blah", "Watts", "Yay", "Ohms"]
+      },
+      {
+        "text": "What is the earth's primary source of energy",
+        "answer": "3",
+        "answers": ["Fire", "Water", "Wind", "The sun"]
+      },
+      {
+        "text": "Who became famous after being hit in the head by an apple?",
+        "answer": "2",
+        "answers": ["Einstein", "Galileo", "Newton", "Copernicus"]
+      }
+    ]
+  },
+  {
+    "title": "Marvel Super Heroes",
+    "desc": "Fun facts about the MCU and marvel universe",
+    "questions": [
+      {
+        "text": "Where do Thor and Loki live?",
+        "answer": "1",
+        "answers": ["Midgard", "Asgard", "Nidavellir", "Jotunheim"]
+      },
+      {
+        "text": "Who is the first super hero of the MCU?",
+        "answer": "2",
+        "answers": ["Captain America", "Thor", "Iron Man", "Doctor Strange"]
+      },
+      {
+        "text": "What is the name of the infinity stone that Thanos took from Loki?",
+        "answer": "3",
+        "answers": ["Time stone", "Soul stone", "Mind stone", "Space stone"]
+      }
+    ]
+  }
+]
