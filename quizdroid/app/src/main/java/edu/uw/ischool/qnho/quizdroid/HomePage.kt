@@ -31,6 +31,7 @@ class HomePage : Fragment() {
 //    get the curr activity that store this fragment -> access fragment manager (supportFragment)
 //    private val fragmentManager = activity -> no activity connected because layout has not been created -> always null
     private val overview = OverviewPage()
+    private val settingView = Preferences()
 
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
@@ -53,6 +54,11 @@ class HomePage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)
         super.onCreate(savedInstanceState)
+
+        val setting = view.findViewById<LinearLayout>(R.id.setting)
+        setting.setOnClickListener{
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.app, settingView)?.commit()
+        }
 
         val quizApp = requireActivity().application as QuizApp
         val repo = quizApp.quizzes
