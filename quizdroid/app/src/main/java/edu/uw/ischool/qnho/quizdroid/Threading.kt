@@ -33,12 +33,13 @@ class Threading(val context: Context): Thread() {
         isRunning = true
 
         while(isRunning) {
-            val downloader = Downloader.FileDownloader(context)
-            downloader.download(fileUrl.trim())
-
-            handler.post{
-                Toast.makeText(context, fileUrl, Toast.LENGTH_SHORT).show()
-            }
+            //downloader part is for network
+//            val downloader = Downloader.FileDownloader(context)
+//            downloader.download(fileUrl.trim())
+//
+//            handler.post{
+//                Toast.makeText(context, fileUrl, Toast.LENGTH_SHORT).show()
+//            }
 
             try {
                 sleep(time.toLong() * 10000)
