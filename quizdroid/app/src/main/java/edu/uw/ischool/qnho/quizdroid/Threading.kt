@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Looper
 import android.util.Log
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import java.util.logging.Handler
 
 class Threading(val context: Context): Thread() {

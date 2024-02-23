@@ -18,8 +18,8 @@ import androidx.core.content.ContextCompat
 // ============================================================
 // UI layer
 class MainActivity : AppCompatActivity() {
-    private val bgThread = Threading(this)
     private val fragmentManager = supportFragmentManager
+    private val bgThread = Threading(this)
     private val homePage = HomePage()
     private val popup = Popup()
     private val PERMISSION_REQUEST_CODE = 234
@@ -43,6 +43,9 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
+        val downloader = Downloader.FileDownloader(this)
+        downloader.download("http://tednewardsandbox.site44.com/questions.json".trim())
+
         val fragmentTransaction = fragmentManager.beginTransaction()
 
         if(checkInternetConnectivity(this)) {
@@ -57,11 +60,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
         val quizApp = (application as QuizApp)
         val repo = quizApp.quizzes
         allQuizzes = repo.getQuiz()
         fragmentTransaction.replace(R.id.app, homePage).commit()
+    }
+
+    override fun onStart() {
+        super.onStart()
+
     }
 
     override fun onDestroy() {

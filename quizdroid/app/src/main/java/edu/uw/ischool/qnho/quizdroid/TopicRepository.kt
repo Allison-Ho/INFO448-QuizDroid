@@ -1,8 +1,12 @@
 package edu.uw.ischool.qnho.quizdroid
 
 import android.app.Application
+import android.content.Context
+import android.net.ConnectivityManager
+import android.provider.Settings
 import android.util.JsonReader
 import android.util.Log
+import android.widget.Toast
 import java.io.IOException
 
 // ============================================================
@@ -42,9 +46,9 @@ interface TopicRepository {
             //structure:
             //quizzes = array of maps<String, Any>
             //questions = array of maps<Pair(String, String), ArrayList<String>>
-            Log.i("TEST", application.filesDir.toString())
+            Log.i("TEST", "in repo: ${application.filesDir.toString()}")
             try{
-                application.openFileInput(application.filesDir.toString() + "/questions.json").apply {
+                application.openFileInput("questions.json").apply {
                     val jsonreader = JsonReader(reader())
                     jsonreader.beginArray()
                     while(jsonreader.hasNext()) {
