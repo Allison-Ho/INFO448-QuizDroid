@@ -2,8 +2,11 @@ package edu.uw.ischool.qnho.quizdroid
 
 import android.app.DownloadManager
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Environment
 import android.util.Log
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import java.io.File
 
@@ -12,11 +15,13 @@ interface Downloader {
 
     class FileDownloader(val context: Context): Downloader {
         override fun download(url: String): Long {
+            Log.i("URL", "curr quiz url in download: $url")
             val downloadManager = context.getSystemService(DownloadManager::class.java)
             val file = "questions.json"
             val dir = File(
-                Environment.getExternalStorageDirectory().toString() + File.separator + Environment.DIRECTORY_DOWNLOADS,
-                "/$file")
+                context.applicationContext.filesDir, "/$file")
+
+            Log.i("TEST", "download folder: ${dir.toString()}")
 
             if (dir.exists()) {
                 Log.i("HELP", "delete old version")

@@ -42,9 +42,9 @@ interface TopicRepository {
             //structure:
             //quizzes = array of maps<String, Any>
             //questions = array of maps<Pair(String, String), ArrayList<String>>
+            Log.i("TEST", application.filesDir.toString())
             try{
-                application.assets.open("sampleQuestions.json").apply {
-                    Log.i("TEST", application.filesDir.toString())
+                application.openFileInput(application.filesDir.toString() + "/questions.json").apply {
                     val jsonreader = JsonReader(reader())
                     jsonreader.beginArray()
                     while(jsonreader.hasNext()) {
